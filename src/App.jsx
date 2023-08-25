@@ -5,11 +5,14 @@ import OneMemberTeam from "./pages/OneMemberTeam";
 import UpdatedOneMemberTeamPage from "./pages/UpdatedOneMemberTeamPage";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
     return (
         <>
+            <Navbar />
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 {/* membre team */}
@@ -28,6 +31,7 @@ function App() {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/login" element={<LogIn />} />
             </Routes>
+            <Footer />
         </>
     );
 }

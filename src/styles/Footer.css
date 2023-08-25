@@ -1,0 +1,36 @@
+footer {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 100px;
+}
+
+.Logo-Footer {
+    width: 150px;
+    height: 100px;
+}
+
+.link-footer-list {
+    list-style: none;
+    text-decoration: none;
+}
+
+.link-footer-list a {
+    text-decoration: none;
+    color: black;
+}
+
+@media (width <= 1500px) {
+    ul {
+        padding: 0;
+    }
+}
+
+@media (width <= 798px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    ul {
+        padding: 0;
+    }
+}
