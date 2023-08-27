@@ -21,22 +21,22 @@ function Navbar() {
             <div className="navbar-onglet">
                 <ul className="nav-links">
                     <li>
-                        <Link className="onglet-navbar-link" to="/">
+                        <Link className="onglet-navbar-link link-underline" to="/">
                             Home
                         </Link>
                     </li>
                     <li>
-                        <Link className="onglet-navbar-link" to="/team">
+                        <Link className="onglet-navbar-link link-underline" to="/team">
                             Team
                         </Link>
                     </li>
                     <li>
-                        <Link className="onglet-navbar-link" to="/prestation">
+                        <Link className="onglet-navbar-link link-underline" to="/prestation">
                             Prestation
                         </Link>
                     </li>
                     <li>
-                        <Link className="onglet-navbar-link" to="/contact">
+                        <Link className="onglet-navbar-link link-underline" to="/contact">
                             Contact
                         </Link>
                     </li>
@@ -45,14 +45,14 @@ function Navbar() {
                     {isLoggedIn ? (
                         // Afficher Logout si l'utilisateur est connecté
                         <li>
-                            <button className="onglet-navbar-link" onClick={logout}>
+                            <button className="onglet-navbar-link link-underline" onClick={logout}>
                                 Logout
                             </button>
                         </li>
                     ) : (
                         // Afficher Login si l'utilisateur n'est pas connecté
                         <li>
-                            <Link className="onglet-navbar-link" to="/login">
+                            <Link className="onglet-navbar-link link-underline" to="/login">
                                 Login
                             </Link>
                         </li>

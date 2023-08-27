@@ -6,8 +6,8 @@ function Footer() {
     return (
         <footer className="footer">
             <div className="column">
-                <h4>Informations</h4>
-                <ul>
+                <h3>Informations</h3>
+                <ul className="list-footer">
                     <li className="link-footer-list">
                         <a href="#">FAQ</a>
                     </li>
@@ -17,14 +17,14 @@ function Footer() {
                     <li className="link-footer-list">
                         <a href="#">CGU CGV</a>
                     </li>
-                    <li className="link-footer-list">
+                    {/* <li className="link-footer-list">
                         <a href="#">RGPD</a>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
             <div className="column">
-                <h4>Nos prestations</h4>
-                <ul>
+                <h3>Nos prestations</h3>
+                <ul className="list-footer">
                     <li className="link-footer-list">
                         <a href="#">Prestation 1</a>
                     </li>
@@ -37,7 +37,7 @@ function Footer() {
                 </ul>
             </div>
             <div className="column">
-                <h4>Nous contacter</h4>
+                <h3>Nous contacter</h3>
                 <p>email : contact@example.com</p>
                 <p>Tél : +1234567890</p>
             </div>

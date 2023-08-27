@@ -1,0 +1,45 @@
+:root {
+    --primary-light: #8abdff;
+    --primary: #6d5dfc;
+    --primary-dark: #5b0eeb;
+
+    --white: #ffffff;
+    --greyLight-1: #e4ebf5;
+    --greyLight-2: #c8d0e7;
+    --greyLight-3: #bec8e4;
+    --greyDark: #9baacf;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* BUTTONS 
+.btn {
+    width: 15rem;
+    height: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: none;
+}
+
+.btn__secondary {
+    grid-column: 1 / 2;
+    grid-row: 5 / 6;
+    /* color: var(--greyDark); */
+/* }
+
+.btn__secondary:hover {
+    color: var(--primary);
+}
+
+.btn__secondary:active {
+    box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+} */

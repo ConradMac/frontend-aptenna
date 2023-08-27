@@ -5,7 +5,12 @@ const myApi = axios.create({
 });
 
 myApi.interceptors.request.use((request) => {
-    request.headers.Authorization = `Bearer ${localStorage.getItem("token")}`;
+    console.log("Token from localStorage:", authToken); // Ajoutez cette ligne pour déboguer
+    request.headers.Authorization = `Bearer ${localStorage.getItem("authToken")}`;
+
+    // if (authToken) {
+    //     request.headers.Authorization = `Bearer ${authToken}`;
+    // }
     return request;
 });
 

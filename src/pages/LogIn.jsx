@@ -41,16 +41,28 @@ function LoginPage() {
     }
     return (
         <form className="login-form" onSubmit={handleSubmit}>
-            <div>
+            <div className="email-input">
                 <label htmlFor="email">Email:</label>
-                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} id="email" />
+                <input
+                    className="input-container btn btn__secondary"
+                    type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    id="email"
+                />
             </div>
-            <div>
+            <div className="password-input">
                 <label htmlFor="password">Password:</label>
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} id="password" />
+                <input
+                    className="input-container btn btn__secondary"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    id="password"
+                />
             </div>
             {error && <p className="error">{error}</p>}
-            <button>Login</button>
+            <button className="btn btn__secondary">Login</button>
         </form>
     );
 }

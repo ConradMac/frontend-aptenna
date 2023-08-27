@@ -1,7 +1,6 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../context/authContext";
 
 import "./../styles/Signup.css";
 
@@ -16,15 +15,39 @@ function Signup() {
     const [city, setCity] = useState("");
     const [zipcode, setZipCode] = useState("");
     const [phone, setPhone] = useState("");
+    // const [picture, setPicture] = useState("");
+
+    const [pictures, setPictures] = useState([]); // Initialize pictures state
 
     const [error, setError] = useState("");
     const navigate = useNavigate();
+
+    async function handleImageSubmit(e) {
+        e.preventDefault();
+        try {
+            // const userPicture = { name, picture }
+
+            const fd = new FormData();
+            // fd.append("name", name);
+            fd.append("picture", pictures);
+
+            const response = await axios.post("http://localhost:5005/api", fd);
+
+            console.log("FLUTEEEEEEEEEEEEEEEEeeee", response.data);
+            setPictures((current) => [...current, response.data]);
+            console.log(pictures);
+
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     // const { authenticateUser } = useContext(UserContext);
 
     function handleSubmit(event) {
         event.preventDefault();
-        const userToCreate = { email, password, lastName, firstName, address, city, zipcode, phone };
+        const userToCreate = { email, password, lastName, firstName, address, city, zipcode, phone, pictures };
 
         axios
             .post(`${API_URL}/api/auth/signup`, userToCreate)
@@ -42,51 +65,123 @@ function Signup() {
                     }, 3000);
                 }
             });
+
+        handleImageSubmit();
     }
+
     return (
-        <form className="form-signup" onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="email">Email:</label>
-                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} id="email" />
-            </div>
-            <div>
-                <label htmlFor="password">Password:</label>
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} id="password" />
-            </div>
+        <div>
+            <form className="form-signup" onSubmit={handleSubmit}>
+                <div className="form-input">
+                    <div>
+                        <label htmlFor="lastName">LastName:</label>
+                        <input
+                            className="input-container btn btn__secondary"
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)}
+                            id="lastName"
+                        />
+                    </div>
 
-            <div>
-                <label htmlFor="lastName">Last Name:</label>
-                <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} id="lastName" />
-            </div>
+                    <div>
+                        <label htmlFor="firstName">FirstName:</label>
+                        <input
+                            className="input-container btn btn__secondary"
+                            type="text"
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
+                            id="firstName"
+                        />
+                    </div>
+                </div>
+                <div className="form-input">
+                    <div>
+                        <label htmlFor="address">Address:</label>
+                        <input
+                            className="input-container btn btn__secondary"
+                            type="text"
+                            value={address}
+                            onChange={(e) => setAdress(e.target.value)}
+                            id="adress"
+                        />
+                    </div>
 
-            <div>
-                <label htmlFor="firstName">First Name:</label>
-                <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} id="firstName" />
-            </div>
+                    <div>
+                        <label htmlFor="city">City:</label>
+                        <input
+                            className="input-container btn btn__secondary"
+                            type="text"
+                            value={city}
+                            onChange={(e) => setCity(e.target.value)}
+                            id="city"
+                        />
+                    </div>
+                </div>
+                <div className="form-input">
+                    <div>
+                        <label htmlFor="zipcode">Zip Code:</label>
+                        <input
+                            className="input-container btn btn__secondary"
+                            type="text"
+                            value={zipcode}
+                            onChange={(e) => setZipCode(e.target.value)}
+                            id="zipCode"
+                        />
+                    </div>
 
-            <div>
-                <label htmlFor="address">Adress:</label>
-                <input type="text" value={address} onChange={(e) => setAdress(e.target.value)} id="adress" />
-            </div>
+                    <div>
+                        <label htmlFor="phone">Phone:</label>
+                        <input
+                            className="input-container btn btn__secondary"
+                            type="text"
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                            id="phone"
+                        />
+                    </div>
+                </div>
+                <div className="form-input">
+                    <div>
+                        <label htmlFor="email">Email:</label>
+                        <input
+                            className="input-container btn btn__secondary"
+                            type="text"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            id="email"
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="password">Password:</label>
+                        <input
+                            className="input-container btn btn__secondary"
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            id="password"
+                        />
+                    </div>
+                </div>
+                {/* <div>
+                <label htmlFor="image">Image:</label>
+                <input type="text" value={image} onChange={(e) => setImage(e.target.value)} id="image" />
+            </div> */}
+                <fieldset className="extra-photo-profil">
+                    <legend>Extra</legend>
+                    <label htmlFor="picture">Picture: </label>
+                    <input
+                        type="file"
+                        id="picture"
+                        // multiple={true}
+                        onChange={(e) => setPictures(e.target.files[0])}
+                    />
+                </fieldset>
+                {error && <p className="error">{error}</p>}
+                <button className="btn btn__secondary">Sign up</button>
+            </form>
 
-            <div>
-                <label htmlFor="city">City:</label>
-                <input type="text" value={city} onChange={(e) => setCity(e.target.value)} id="city" />
-            </div>
-
-            <div>
-                <label htmlFor="zipcode">Zip Code:</label>
-                <input type="text" value={zipcode} onChange={(e) => setZipCode(e.target.value)} id="zipCode" />
-            </div>
-
-            <div>
-                <label htmlFor="phone">Phone:</label>
-                <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} id="phone" />
-            </div>
-
-            {error && <p className="error">{error}</p>}
-            <button>Sign up</button>
-        </form>
+            {/* Display uploaded pictures */}
+        </div>
     );
 }
 

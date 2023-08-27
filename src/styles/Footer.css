@@ -1,7 +1,8 @@
 footer {
     display: flex;
     justify-content: space-around;
-    padding-top: 100px;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    align-items: center;
 }
 
 .Logo-Footer {
@@ -17,6 +18,14 @@ footer {
 .link-footer-list a {
     text-decoration: none;
     color: black;
+}
+
+.list-footer {
+    padding: 0;
+    line-height: 1.2;
+    gap: 7px;
+    display: flex;
+    flex-direction: column;
 }
 
 @media (width <= 1500px) {

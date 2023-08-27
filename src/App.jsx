@@ -15,19 +15,22 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                {/* membre team */}
+                {/* Routes pour les membres de l'équipe */}
                 <Route path="/team" element={<Team />} />
                 <Route path="/team/:id" element={<OneMemberTeam />} />
                 <Route path="/team/:id/update" element={<UpdatedOneMemberTeamPage />} />
-                {/* techno */}
+
+                {/* Routes pour les technologies */}
                 <Route path="/techno" element={<Team />} />
                 <Route path="/techno/:id" element={<OneMemberTeam />} />
                 <Route path="/techno/:id/update" element={<UpdatedOneMemberTeamPage />} />
-                {/* prestation */}
+
+                {/* Routes pour les prestations */}
                 <Route path="/prestation" element={<Team />} />
                 <Route path="/prestation/:id" element={<OneMemberTeam />} />
                 <Route path="/prestation/:id/update" element={<UpdatedOneMemberTeamPage />} />
-                {/* signup & signin */}
+
+                {/* Routes pour l'inscription et la connexion */}
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/login" element={<LogIn />} />
             </Routes>

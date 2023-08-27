@@ -1,10 +1,36 @@
 .form-signup {
-    margin-top: 100px;
+    margin-top: 150px;
     display: flex;
     flex-direction: column;
     text-align: center;
     line-height: 3.2;
-    height: 55vh;
+    height: auto;
     align-items: center;
     justify-content: center;
+    margin-bottom: 50px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px; /* Ajoutez un espace entre chaque input */
+}
+
+.input-container label {
+    margin-bottom: 5px;
+}
+
+.input-container input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-input {
+    display: flex;
+    gap: 50px;
+}
+
+.extra-photo-profil {
+    margin: 2%;
 }
