@@ -7,11 +7,18 @@
     height: 600px;
 }
 
+.image-team {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
 .team-list {
     display: flex;
     flex-wrap: wrap;
     gap: 100px;
     padding: 10%;
+    justify-content: space-between;
 }
 
 .text-team-page {

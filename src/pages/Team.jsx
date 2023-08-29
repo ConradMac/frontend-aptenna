@@ -46,9 +46,15 @@ function TeamPage() {
                 <div className="team-list">
                     {teamMembers.map((member) => (
                         <div key={member._id} className="team-member">
-                            <img src={member.picture} alt={`${member.firstName} ${member.lastName}`} />
-                            <h2>{`${member.firstName} ${member.lastName}`}</h2>
-                            <p>{member.title}</p>
+                            <Link to={`/member/${member._id}`} className="link">
+                                <img
+                                    className="image-team"
+                                    src={member.picture}
+                                    alt={`${member.firstName} ${member.lastName}`}
+                                />
+                                <h2>{`${member.firstName} ${member.lastName}`}</h2>
+                                {/* <p>{member.title}</p> */}
+                            </Link>
                         </div>
                     ))}
                 </div>

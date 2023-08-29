@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
 import "./../styles/Signup.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -15,42 +14,55 @@ function Signup() {
     const [city, setCity] = useState("");
     const [zipcode, setZipCode] = useState("");
     const [phone, setPhone] = useState("");
-    // const [picture, setPicture] = useState("");
 
     const [pictures, setPictures] = useState([]); // Initialize pictures state
 
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
-    async function handleImageSubmit(e) {
-        e.preventDefault();
-        try {
-            // const userPicture = { name, picture }
+    // async function handleImageSubmit(e) {
+    //     e.preventDefault();
+    //     try {
+    //         // const userPicture = { name, picture }
 
-            const fd = new FormData();
-            // fd.append("name", name);
-            fd.append("picture", pictures);
+    //         const fd = new FormData();
+    //         // fd.append("name", name);
+    //         fd.append("picture", pictures);
 
-            const response = await axios.post("http://localhost:5005/api", fd);
+    //         const response = await axios.post("http://localhost:5005/api", fd);
 
-            console.log("FLUTEEEEEEEEEEEEEEEEeeee", response.data);
-            setPictures((current) => [...current, response.data]);
-            console.log(pictures);
+    //         console.log("FLUTEEEEEEEEEEEEEEEEeeee", response.data);
+    //         setPictures((current) => [...current, response.data]);
+    //         console.log(pictures);
 
-            console.log(response);
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    //         console.log(response);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
     // const { authenticateUser } = useContext(UserContext);
 
     function handleSubmit(event) {
         event.preventDefault();
+
+        const fd = new FormData();
+        fd.append("picture", pictures);
+        fd.append("email", email);
+        fd.append("password", password);
+        fd.append("lastName", lastName);
+        fd.append("firstName", firstName);
+        fd.append("address", address);
+        fd.append("city", city);
+        fd.append("zipcode", zipcode);
+        fd.append("phone", phone);
+
+        console.log("FLUTEEEEEEEEEEEEEEEEeeee", fd);
+
         const userToCreate = { email, password, lastName, firstName, address, city, zipcode, phone, pictures };
 
         axios
-            .post(`${API_URL}/api/auth/signup`, userToCreate)
+            .post(`${API_URL}/api/auth/signup`, fd)
             .then((response) => {
                 console.log(response.data);
                 navigate("/login");
@@ -59,14 +71,13 @@ function Signup() {
                 console.log(e);
 
                 if (e.response) {
+                    console.log(e.response.data.message);
                     setError(e.response.data.message);
                     setTimeout(() => {
                         setError("");
                     }, 3000);
                 }
             });
-
-        handleImageSubmit();
     }
 
     return (

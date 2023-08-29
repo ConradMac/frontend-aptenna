@@ -5,8 +5,9 @@ import OneMemberTeam from "./pages/OneMemberTeam";
 import UpdatedOneMemberTeamPage from "./pages/UpdatedOneMemberTeamPage";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
-import Navbar from "./components/Navbar";
+import Navbar from "./Components/Navbar";
 import Footer from "./components/Footer";
+import PrestationForm from "./Components/PrestationForm";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -29,6 +30,10 @@ function App() {
                 <Route path="/prestation" element={<Team />} />
                 <Route path="/prestation/:id" element={<OneMemberTeam />} />
                 <Route path="/prestation/:id/update" element={<UpdatedOneMemberTeamPage />} />
+                <Route path="/prestationform/:id" element={<PrestationForm />} />
+
+                {/* prestationForm */}
+                {/* <Route path="/prestation/:id/create" element={<PrestationForm />} /> */}
 
                 {/* Routes pour l'inscription et la connexion */}
                 <Route path="/signup" element={<SignUp />} />
