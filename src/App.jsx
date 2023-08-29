@@ -6,7 +6,7 @@ import UpdatedOneMemberTeamPage from "./pages/UpdatedOneMemberTeamPage";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 import Navbar from "./Components/Navbar";
-import Footer from "./components/Footer";
+import Footer from "./Components/Footer";
 import PrestationForm from "./Components/PrestationForm";
 import { Routes, Route } from "react-router-dom";
 
