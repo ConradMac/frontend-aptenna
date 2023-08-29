@@ -1,28 +1,20 @@
-// import React from "react";
-// import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ImageUser from "./../assets/user-image.png";
 import "./../styles/OneMemberTeam.css";
 import myApi from "../api/service";
 import { Link } from "react-router-dom";
-// import { useContext } from "react";
-// import { UserContext } from "../context/authContext";
 
-const API_URL = import.meta.env.VITE_API_URL;
+// const API_URL = import.meta.env.VITE_API_URL;
 
 function OneMemberTeam() {
     const [user, setUser] = useState(null); // Définis une variable d'état pour stocker les données du membre ok !!!!!!!!!
 
     const [prestations, setPrestations] = useState([]); // Ajoutez cet état
 
-    const [isAdmin, setIsAdmin] = useState(false); // Ajoute un état pour vérifier si l'utilisateur est un administrateur, okay !!!!!!!!!
+    // const [isAdmin, setIsAdmin] = useState(false); // Ajoute un état pour vérifier si l'utilisateur est un administrateur, okay !!!!!!!!!
 
     let params = useParams();
-    // const [currentUser, setCurrentUser] = useState();
-    //    let user_id = params.user_id;
-    // const { user } = useContext(UserContext);
-    // console.log(user);
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -41,13 +33,24 @@ function OneMemberTeam() {
         fetchUserData();
     }, [params.id]);
 
+    const deletePrestation = async (prestationId) => {
+        try {
+            const response = await myApi.delete(`/api/prestations/${prestationId}`);
+            console.log("Prestation deleted:", response.data);
+            // Update the prestations list after deletion
+            setPrestations(prestations.filter((prestation) => prestation._id !== prestationId));
+        } catch (error) {
+            console.error("Error deleting prestation:", error);
+        }
+    };
+
     if (!user) {
         return <div>Loading...</div>;
     }
 
     const isAuthenticated = localStorage.getItem("token") ? true : false;
     return (
-        <div>
+        <div className="main-form-OneMember">
             <div className="OneMemberTeam">
                 <div>
                     <img
@@ -77,12 +80,23 @@ function OneMemberTeam() {
                 <div className="profil-techno-prestation">
                     <p>Technologies: {user.technologies}</p>
                     <p>Prestations:</p>
-                    <ul>
+                    <ul className="block-information-member">
                         {prestations.map((prestation) => (
-                            <li key={prestation._id}>
-                                <li> {prestation.title}</li>
-                                <li> {prestation.description}</li> <li>{prestation.price}</li>
-                            </li>
+                            <ul className="OneMember-profile-page" key={prestation._id}>
+                                <div className="services">
+                                    <li> Technologies : {prestation.title}</li>
+                                    <li>Description : {prestation.description}</li>
+                                    <li> Service rate : {prestation.price} €</li>
+                                </div>
+                                <div className="button-profile-page">
+                                    <button className="delete-button" onClick={() => deletePrestation(prestation._id)}>
+                                        Delete
+                                    </button>
+                                    <Link className="update-button" to={`/prestation/${prestation._id}/update`}>
+                                        Update
+                                    </Link>
+                                </div>
+                            </ul>
                         ))}
                     </ul>
                 </div>
@@ -93,6 +107,16 @@ function OneMemberTeam() {
                 {isAuthenticated && (
                     <Link to={`/prestationform/${params.id}`} className="button-link">
                         Aller à PrestationForm
+                    </Link>
+                )}
+            </div>
+
+            <div>
+                {/* Bouton pour accéder à la page de mise à jour du profil */}
+
+                {isAuthenticated && (
+                    <Link to={`/user/${params.id}/update`} className="button-link">
+                        Update Profile
                     </Link>
                 )}
             </div>

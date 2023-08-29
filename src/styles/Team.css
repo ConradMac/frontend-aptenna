@@ -8,8 +8,8 @@
 }
 
 .image-team {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
 }
 
@@ -39,4 +39,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.team-member {
+    display: flex;
+    text-align: center;
+}
+
+.team-name {
+    color: white;
+    text-decoration: underline;
+    font-size: 20px;
 }

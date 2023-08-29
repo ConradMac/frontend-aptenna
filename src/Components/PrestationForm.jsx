@@ -3,6 +3,8 @@ import myApi from "../api/service";
 import { useParams } from "react-router-dom";
 import "./../styles/PrestationForm.css";
 
+// import DeletePrestationButton from "./DeletePrestationButton";
+
 function PrestationForm() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -28,6 +30,15 @@ function PrestationForm() {
         }
     };
 
+    const deletePrestation = async (prestationId) => {
+        try {
+            const response = await myApi.delete(`/api/prestations/${prestationId}`);
+            console.log("Prestation deleted:", response.data);
+        } catch (error) {
+            console.error("Error deleting prestation:", error);
+        }
+    };
+
     return (
         <div className="form-createAPrestation">
             <h2>Create a New Prestation</h2>
@@ -44,7 +55,10 @@ function PrestationForm() {
                     <label>Price:</label>
                     <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} />
                 </div>
+
                 <button type="submit">Create</button>
+                <button onClick={() => deletePrestation(prestation._id)}>Delete</button>
+                {/* <DeletePrestationButton prestationId={params.id} /> */}
             </form>
         </div>
     );

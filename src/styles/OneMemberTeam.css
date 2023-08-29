@@ -1,6 +1,11 @@
+.main-form-OneMember {
+    display: flex;
+    margin: 3%;
+}
+
 .OneMemberTeam {
     align-items: center;
-    gap: 20%;
+    gap: 7%;
     display: flex;
     justify-content: center;
     margin-top: 150px;
@@ -15,11 +20,16 @@
     line-height: 1.9;
     box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
     transition: all 0.3s ease;
-    width: 50%;
+    width: 400px;
+    margin: 35px;
 }
 
 .profil-techno-prestation {
     margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
 }
 
 .profil-techno-prestation {
@@ -27,4 +37,26 @@
     flex-direction: column;
     align-items: center;
     margin-top: 5%;
+}
+
+.OneMember-profile-page {
+    display: flex;
+    padding: 0;
+    align-items: center;
+}
+
+.services {
+    width: 75%;
+    line-height: 1.4;
+    margin-bottom: 4%;
+}
+
+.block-information-member {
+    padding: 0;
+}
+
+.button-profile-page {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }

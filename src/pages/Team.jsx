@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import bannerHeader from "./../assets/team.jpg";
 import "./../styles/Team.css";
@@ -26,19 +26,17 @@ function TeamPage() {
                     <div className="single-text-team-page">
                         <h2>Our Team</h2>
                         <p className="paragraphe-team">
-                            Notre équipe est composée d'individus passionnés, talentueux et dévoués, chacun apportant
-                            son expertise unique pour faire de notre entreprise un véritable succès. Ensemble, nous
-                            partageons une vision commune et travaillons main dans la main pour atteindre nos objectifs
-                            ambitieux.
+                            Our team is made up of passionate, talented, and dedicated individuals, each bringing their
+                            unique expertise to make our company a true success. Together, we share a common vision and
+                            work hand in hand to achieve our ambitious goals.
                         </p>
                     </div>
                     <div className="single-text-team-page">
                         <h2>Collaboration et Synergie</h2>
                         <p className="paragraphe-team">
-                            La collaboration est au cœur de notre culture d'entreprise. Nous croyons fermement que des
-                            esprits brillants travaillent mieux ensemble. Nos échanges d'idées, notre partage de
-                            connaissances et notre approche collaborative nous permettent d'innover et de relever les
-                            défis avec créativité et enthousiasme.
+                            Collaboration lies at the heart of our corporate culture. We strongly believe that brilliant
+                            minds work better together. Our exchange of ideas, sharing of knowledge, and collaborative
+                            approach enable us to innovate and tackle challenges with creativity and enthusiasm.
                         </p>
                     </div>
                 </div>
@@ -46,13 +44,13 @@ function TeamPage() {
                 <div className="team-list">
                     {teamMembers.map((member) => (
                         <div key={member._id} className="team-member">
-                            <Link to={`/member/${member._id}`} className="link">
+                            <Link to={`/team/${member._id}`} className="link">
                                 <img
                                     className="image-team"
                                     src={member.picture}
                                     alt={`${member.firstName} ${member.lastName}`}
                                 />
-                                <h2>{`${member.firstName} ${member.lastName}`}</h2>
+                                <h2 className="team-name">{`${member.firstName} ${member.lastName}`}</h2>
                                 {/* <p>{member.title}</p> */}
                             </Link>
                         </div>

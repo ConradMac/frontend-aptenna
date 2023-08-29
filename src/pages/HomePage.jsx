@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Logo from "./../assets/logo-officiel-Aptenna.png";
 import Python from "./../assets/technos/python.png";
@@ -6,7 +6,7 @@ import ReactPic from "./../assets/technos/nodeJs.jpg";
 import Node from "./../assets/technos/react.png";
 import Javascript from "./../assets/technos/javascript.png";
 import Button from "./../Components/Button";
-import "../styles/HomePage.css";
+import "./../styles/HomePage.css";
 import "./../index.css";
 import "./../styles/Button.css";
 
