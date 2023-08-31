@@ -1,12 +1,12 @@
 import React from "react";
 import "./../styles/Button.css";
 
-function button() {
+function Button({ children, classList }) {
     return (
         <div>
-            <button className="btn btn__secondary">button Form Contact</button>
+            <button className={`btn btn__secondary ${classList && classList}`}>{children}</button>
         </div>
     );
 }
 
-export default button;
+export default Button;

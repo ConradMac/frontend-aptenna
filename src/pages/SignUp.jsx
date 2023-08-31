@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./../styles/Signup.css";
 import myApi from "../api/service";
+import Button from "../Components/Button";
 
 // const API_URL = import.meta.env.VITE_API_URL;
 
@@ -166,7 +167,7 @@ function Signup() {
                     />
                 </fieldset>
                 {error && <p className="error">{error}</p>}
-                <button className="btn btn__secondary">Sign up</button>
+                <Button>Sign Up</Button>
             </form>
 
             {/* Display uploaded pictures */}

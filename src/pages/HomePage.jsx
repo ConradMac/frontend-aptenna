@@ -44,7 +44,7 @@ function HomePage() {
             <div className="title-homePage-redic-button">
                 <h2>Avec nous pensez votre projet</h2>
                 {/* <button className="btn btn__secondary">button Form Contact</button> */}
-                <Button />
+                <Button>button Form Contact</Button>
             </div>
             <div className="slide-techno">
                 <div className="container h-100">
