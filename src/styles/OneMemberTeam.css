@@ -9,6 +9,7 @@
     display: flex;
     justify-content: center;
     margin-top: 150px;
+    text-align: center;
 }
 
 .profil-image-user {
@@ -86,4 +87,11 @@
 .subtitle-nameMember {
     display: flex;
     justify-content: center;
+}
+
+.block-area-button-OneMemberTeam {
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
 }

@@ -45,9 +45,8 @@ function OneMemberTeam() {
     if (!displayedUser) {
         return <div>Loading...</div>;
     }
-    const owner = user?._id === params.id;
-    console.log(owner, user);
-
+    const owner = user?._id === params.id || user?.role === "SuperAdmin";
+    console.log(owner);
     return (
         <>
             <div className="main-form-OneMember">
@@ -119,26 +118,24 @@ function OneMemberTeam() {
                         </ul>
                     </div>
                 )}
-                <div className="block-area-button-OneMemberTeam">
-                    <div className="button-container">
-                        {owner ||
-                            (user?.role === "SuperAdmin" && (
-                                <Link to={`/prestationform/${params.id}`} className="button-link">
-                                    Aller à PrestationForm
-                                </Link>
-                            ))}
-                    </div>
-
-                    <div className="button-container">
-                        {owner ||
-                            (user?.role === "SuperAdmin" && (
-                                <Link to={`/user/${params.id}/update`} className="button-link">
-                                    Update Profile
-                                </Link>
-                            ))}
-                    </div>
-                </div>
             </div>
+            {owner && (
+                <>
+                    <div className="block-area-button-OneMemberTeam">
+                        <div className="button-container btn btn-secondary">
+                            <Link to={`/prestationform/${params.id}`} className="button-link">
+                                Aller à PrestationForm
+                            </Link>
+                        </div>
+
+                        <div className="button-container btn btn-secondary">
+                            <Link to={`/user/${params.id}/update`} className="button-link">
+                                Update Profile
+                            </Link>
+                        </div>
+                    </div>
+                </>
+            )}
         </>
     );
 }

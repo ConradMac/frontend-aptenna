@@ -9,4 +9,28 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    align-items: center;
+}
+
+.form-updated-form {
+    min-height: 56vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+.form-updated-form input,
+.form-updated-form textarea {
+    text-align: center;
+}
+
+.updated-teamPage-block-area {
+    display: flex;
+}
+
+.textArea-form-updated {
+    overflow-y: hidden;
+    height: 115px;
+    width: 266px;
 }

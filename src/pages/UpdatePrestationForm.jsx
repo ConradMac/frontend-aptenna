@@ -50,24 +50,45 @@ function UpdatePrestationForm() {
     return (
         <div className="form-updatePrestation">
             <h2>Update Prestation</h2>
-            <form onSubmit={handleUpdate}>
+            <form className="form-updated-form" onSubmit={handleUpdate}>
                 <div className="label-form-block-area-updated-">
                     <label>Title:</label>
-                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <input
+                        placeholder="Title"
+                        className="btn btn-secondary"
+                        type="text"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
                 </div>
                 <div className="label-form-block-area-updated-">
                     <label>Description:</label>
-                    <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
+                    <textarea
+                        placeholder="Description"
+                        className="btn btn-secondary textArea-form-updated"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
                 </div>
                 <div className="label-form-block-area-updated-">
                     <label>Price:</label>
-                    <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} />€
+                    <input
+                        placeholder="Price €"
+                        className="btn btn-secondary"
+                        type="number"
+                        value={price}
+                        onChange={(e) => setPrice(e.target.value)}
+                    />
                 </div>
-                <button type="submit">Update</button>
+                <div className="updated-teamPage-block-area">
+                    <button className="btn btn-secondary" type="submit">
+                        Update
+                    </button>
 
-                <Link to={`/team/${user?._id}`} className="back-link">
-                    Go back to Member
-                </Link>
+                    <Link to={`/team/${user?._id}`} className="back-link btn btn-secondary">
+                        Go back to Member
+                    </Link>
+                </div>
             </form>
         </div>
     );
