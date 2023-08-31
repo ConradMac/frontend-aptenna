@@ -7,26 +7,20 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../context/authContext";
 import { useContext } from "react";
 
-// const API_URL = import.meta.env.VITE_API_URL;
-
 function OneMemberTeam() {
-    const [displayedUser, setUser] = useState(null); // Définis une variable d'état pour stocker les données du membre ok !!!!!!!!!
+    const [displayedUser, setUser] = useState(null);
 
-    const [prestations, setPrestations] = useState([]); // Ajoutez cet état
-
-    // const [isAdmin, setIsAdmin] = useState(false); // Ajoute un état pour vérifier si l'utilisateur est un administrateur, okay !!!!!!!!!
+    const [prestations, setPrestations] = useState([]);
 
     let params = useParams();
 
-    const { user } = useContext(UserContext); // pour recup donné
-
+    const { user } = useContext(UserContext);
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                // pour les requettes, il faut mieux itiloser myApi pour acceder au token. car on a automatisé l'ajout du token dans les requettes (headers)
                 const response = await myApi.get(`/api/users/${params.id}`);
                 console.log("USER DATA", response.data);
-                setUser(response.data.user); // Définissez les données du membre ici
+                setUser(response.data.user);
                 setPrestations(response.data.prestation);
             } catch (error) {
                 console.error(error);
@@ -41,7 +35,7 @@ function OneMemberTeam() {
         try {
             const response = await myApi.delete(`/api/prestations/${prestationId}`);
             console.log("Prestation deleted:", response.data);
-            // Update the prestations list after deletion
+
             setPrestations(prestations.filter((prestation) => prestation._id !== prestationId));
         } catch (error) {
             console.error("Error deleting prestation:", error);
@@ -53,7 +47,7 @@ function OneMemberTeam() {
     }
     const owner = user?._id === params.id;
     console.log(owner, user);
-    // const isAuthenticated = localStorage.getItem("token") ? true : false;
+
     return (
         <>
             <div className="main-form-OneMember">
@@ -62,7 +56,7 @@ function OneMemberTeam() {
                         <div className="information-details">
                             <img
                                 className="profil-image-user"
-                                src={displayedUser.picture || ImageUser} // Utilisez la propriété "picture" ou l'image par défaut si aucune image n'est disponible
+                                src={displayedUser.picture || ImageUser}
                                 alt={`${displayedUser.firstName} ${displayedUser.lastName}`}
                             />
                         </div>
@@ -81,7 +75,7 @@ function OneMemberTeam() {
                 {/* <div className="profil-techno-prestation">
                 <p>Technologies: {user.technologies}</p>
                 <p>Prestations: {prestations.length}</p>
-            </div> */}
+                </div> */}
                 {prestations && prestations.length > 0 && (
                     <div className="profil-techno-prestation">
                         <p>Prestations:</p>
@@ -128,7 +122,6 @@ function OneMemberTeam() {
             </div>
             <div className="block-area-button-OneMemberTeam">
                 <div className="button-container">
-                    {/* Bouton pour accéder à PrestationForm si l'utilisateur est authentifié */}
                     {owner ||
                         (user?.role === "SuperAdmin" && (
                             <Link to={`/prestationform/${params.id}`} className="button-link">
@@ -138,8 +131,6 @@ function OneMemberTeam() {
                 </div>
 
                 <div className="button-container">
-                    {/* Bouton pour accéder à la page de mise à jour du profil */}
-
                     {owner ||
                         (user?.role === "SuperAdmin" && (
                             <Link to={`/user/${params.id}/update`} className="button-link">

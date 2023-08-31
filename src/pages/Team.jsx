@@ -1,20 +1,22 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import bannerHeader from "./../assets/team.jpg";
+import myApi from "../api/service";
+
 // src\assets\team.jpg
 import "./../styles/Team.css";
 import { Link } from "react-router-dom";
 
-const API_URL = "http://localhost:5005"; // Remplacez par l'URL correcte de votre API
+// const API_URL = "http://localhost:5005";
 
 function TeamPage() {
     const [teamMembers, setTeamMembers] = useState([]);
 
     useEffect(() => {
-        console.log("AZSDFGHJKJKHJGFHCDGCFV?JKLJKBHJGVFHCJVG");
-        axios.get(`${API_URL}/api/users`).then((response) => {
-            console.log("AZSDFGHJKJKHJGFHCDGCFV?JKLJKBHJGVFHCJVG");
-            // console.log(response.data);
+        // console.log("AZSDFGHJKJKHJGFHCDGCFV?JKLJKBHJGVFHCJVG");
+        myApi.get(`/api/users`).then((response) => {
+            // console.log("AZSDFGHJKJKHJGFHCDGCFV?JKLJKBHJGVFHCJVG");
+
             setTeamMembers(response.data);
         });
     }, []);

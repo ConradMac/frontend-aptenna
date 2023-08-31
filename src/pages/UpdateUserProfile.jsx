@@ -98,7 +98,7 @@ function UpdateUserForm() {
 
                 <button type="submit">Update</button>
             </form>
-            {/* pour retourner vers sa page user, je dois utiliser le useContext */}
+
             <Link to={`/team/${user?._id}`}>Back to User Profile</Link>
         </div>
     );

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import Logo from "./../assets/logo-officiel-Aptenna.png";
 import Python from "./../assets/technos/python.png";
 import ReactPic from "./../assets/technos/nodeJs.jpg";
@@ -10,23 +10,10 @@ import "./../styles/HomePage.css";
 import "./../index.css";
 import "./../styles/Button.css";
 
-const API_URL = import.meta.env.VITE_API_URL;
+// const API_URL = import.meta.env.VITE_API_URL;
 
 function HomePage() {
     const [teamImages, setTeamImages] = useState([]);
-
-    // useEffect(() => {
-    //     const fetchTeamImages = async () => {
-    //         try {
-    //             // const response = await axios.get(`${API_URL}/team-images`);
-    //             setTeamImages(response.data);
-    //         } catch (error) {
-    //             console.error(error);
-    //         }
-    //     };
-
-    //     fetchTeamImages();
-    // }, []);
 
     return (
         <div className="homePage">

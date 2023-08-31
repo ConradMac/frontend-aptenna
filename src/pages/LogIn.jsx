@@ -1,11 +1,13 @@
 import { useState, useContext } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { useNavigate } from "react-router-dom";
 // impoter le context pour pouvoir utiliser la fonction authenticateUser, capiche koko
 import { UserContext } from "../context/authContext";
+import myApi from "../api/service";
+
 import "./../styles/LogIn.css";
 
-const API_URL = import.meta.env.VITE_API_URL;
+// const API_URL = import.meta.env.VITE_API_URL;
 
 function LoginPage() {
     const [email, setEmail] = useState("");
@@ -20,8 +22,8 @@ function LoginPage() {
     function handleSubmit(event) {
         event.preventDefault();
         const userToLogin = { email, password };
-        axios
-            .post(`${API_URL}/api/auth/login`, userToLogin)
+        myApi
+            .post(`/api/auth/login`, userToLogin)
             .then((response) => {
                 console.log(response);
 

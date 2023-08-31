@@ -1,9 +1,10 @@
 import { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./../styles/Signup.css";
+import myApi from "../api/service";
 
-const API_URL = import.meta.env.VITE_API_URL;
+// const API_URL = import.meta.env.VITE_API_URL;
 
 function Signup() {
     const [email, setEmail] = useState("");
@@ -15,33 +16,10 @@ function Signup() {
     const [zipcode, setZipCode] = useState("");
     const [phone, setPhone] = useState("");
 
-    const [pictures, setPictures] = useState([]); // Initialize pictures state
+    const [pictures, setPictures] = useState([]);
 
     const [error, setError] = useState("");
     const navigate = useNavigate();
-
-    // async function handleImageSubmit(e) {
-    //     e.preventDefault();
-    //     try {
-    //         // const userPicture = { name, picture }
-
-    //         const fd = new FormData();
-    //         // fd.append("name", name);
-    //         fd.append("picture", pictures);
-
-    //         const response = await axios.post("http://localhost:5005/api", fd);
-
-    //         console.log("FLUTEEEEEEEEEEEEEEEEeeee", response.data);
-    //         setPictures((current) => [...current, response.data]);
-    //         console.log(pictures);
-
-    //         console.log(response);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-
-    // const { authenticateUser } = useContext(UserContext);
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -59,10 +37,10 @@ function Signup() {
 
         console.log("FLUTEEEEEEEEEEEEEEEEeeee", fd);
 
-        const userToCreate = { email, password, lastName, firstName, address, city, zipcode, phone, pictures };
+        // const userToCreate = { email, password, lastName, firstName, address, city, zipcode, phone, pictures };
 
-        axios
-            .post(`${API_URL}/api/auth/signup`, fd)
+        myApi
+            .post(`/api/auth/signup`, fd)
             .then((response) => {
                 console.log(response.data);
                 navigate("/login");

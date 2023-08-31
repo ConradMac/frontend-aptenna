@@ -64,7 +64,7 @@ function UpdatePrestationForm() {
                     <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} />
                 </div>
                 <button type="submit">Update</button>
-                {/*là, ajouter link to go back to the profil de l'id. */}
+
                 <Link to={`/team/${user?._id}`} className="back-link">
                     Go back to Member
                 </Link>
