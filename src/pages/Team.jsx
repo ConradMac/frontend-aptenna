@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import bannerHeader from "./../assets/team.jpg";
+// src\assets\team.jpg
 import "./../styles/Team.css";
 import { Link } from "react-router-dom";
 
@@ -10,8 +11,10 @@ function TeamPage() {
     const [teamMembers, setTeamMembers] = useState([]);
 
     useEffect(() => {
+        console.log("AZSDFGHJKJKHJGFHCDGCFV?JKLJKBHJGVFHCJVG");
         axios.get(`${API_URL}/api/users`).then((response) => {
-            console.log(response.data);
+            console.log("AZSDFGHJKJKHJGFHCDGCFV?JKLJKBHJGVFHCJVG");
+            // console.log(response.data);
             setTeamMembers(response.data);
         });
     }, []);
@@ -24,7 +27,7 @@ function TeamPage() {
             <div className="profile-images-team">
                 <div className="text-team-page">
                     <div className="single-text-team-page">
-                        <h2>Our Team</h2>
+                        <h2 className="subtitle-team-page">Our Team</h2>
                         <p className="paragraphe-team">
                             Our team is made up of passionate, talented, and dedicated individuals, each bringing their
                             unique expertise to make our company a true success. Together, we share a common vision and
@@ -32,7 +35,7 @@ function TeamPage() {
                         </p>
                     </div>
                     <div className="single-text-team-page">
-                        <h2>Collaboration et Synergie</h2>
+                        <h2 className="subtitle-team-page">Collaboration & Synergie</h2>
                         <p className="paragraphe-team">
                             Collaboration lies at the heart of our corporate culture. We strongly believe that brilliant
                             minds work better together. Our exchange of ideas, sharing of knowledge, and collaborative

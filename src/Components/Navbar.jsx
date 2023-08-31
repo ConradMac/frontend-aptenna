@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Logo from "./../assets/logo-officiel-Aptenna.png";
 import "./../styles/Navbar.css";
 import { UserContext } from "../context/authContext";
+import Logout from "./../assets/icons-logs/logout.png";
+import Login from "./../assets/icons-logs/login.jpg";
 
 function Navbar() {
     const { isLoggedIn, authenticateUser } = useContext(UserContext); // Utilisation du hook useAuth
@@ -36,7 +38,7 @@ function Navbar() {
                         </Link>
                     </li>
                     <li>
-                        <Link className="onglet-navbar-link link-underline" to="/contact">
+                        <Link className="onglet-navbar-link link-underline" to="/Contact">
                             Contact
                         </Link>
                     </li>
@@ -45,15 +47,15 @@ function Navbar() {
                     {isLoggedIn ? (
                         // Afficher Logout si l'utilisateur est connecté
                         <li>
-                            <button className="onglet-navbar-link link-underline" onClick={logout}>
-                                Logout
+                            <button className="onglet-navbar-link link-underline logout-icon" onClick={logout}>
+                                <img className="img-logout" src={Logout} alt="Logo" />
                             </button>
                         </li>
                     ) : (
                         // Afficher Login si l'utilisateur n'est pas connecté
                         <li>
                             <Link className="onglet-navbar-link link-underline" to="/login">
-                                Login
+                                <img className="img-login" src={Login} alt="Logo" />
                             </Link>
                         </li>
                     )}

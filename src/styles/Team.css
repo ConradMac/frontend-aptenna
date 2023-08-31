@@ -33,6 +33,7 @@
 
 .paragraphe-team {
     width: 50%;
+    font-size: 20px;
 }
 
 .single-text-team-page {
@@ -50,4 +51,12 @@
     color: white;
     text-decoration: underline;
     font-size: 20px;
+}
+
+.subtitle-team-page {
+    font-size: 26px;
+}
+
+.list-services-oneMemberTeam {
+    list-style: none;
 }

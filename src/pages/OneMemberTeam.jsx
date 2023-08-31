@@ -4,17 +4,21 @@ import ImageUser from "./../assets/user-image.png";
 import "./../styles/OneMemberTeam.css";
 import myApi from "../api/service";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/authContext";
+import { useContext } from "react";
 
 // const API_URL = import.meta.env.VITE_API_URL;
 
 function OneMemberTeam() {
-    const [user, setUser] = useState(null); // Définis une variable d'état pour stocker les données du membre ok !!!!!!!!!
+    const [displayedUser, setUser] = useState(null); // Définis une variable d'état pour stocker les données du membre ok !!!!!!!!!
 
     const [prestations, setPrestations] = useState([]); // Ajoutez cet état
 
     // const [isAdmin, setIsAdmin] = useState(false); // Ajoute un état pour vérifier si l'utilisateur est un administrateur, okay !!!!!!!!!
 
     let params = useParams();
+
+    const { user } = useContext(UserContext); // pour recup donné
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -44,83 +48,107 @@ function OneMemberTeam() {
         }
     };
 
-    if (!user) {
+    if (!displayedUser) {
         return <div>Loading...</div>;
     }
-
-    const isAuthenticated = localStorage.getItem("token") ? true : false;
+    const owner = user?._id === params.id;
+    console.log(owner, user);
+    // const isAuthenticated = localStorage.getItem("token") ? true : false;
     return (
-        <div className="main-form-OneMember">
-            <div className="OneMemberTeam">
-                <div>
-                    <img
-                        className="profil-image-user"
-                        src={user.picture || ImageUser} // Utilisez la propriété "picture" ou l'image par défaut si aucune image n'est disponible
-                        alt={`${user.firstName} ${user.lastName}`}
-                    />
+        <>
+            <div className="main-form-OneMember">
+                <div className="OneMemberTeam">
+                    <div className="profil-information-user">
+                        <div className="information-details">
+                            <img
+                                className="profil-image-user"
+                                src={displayedUser.picture || ImageUser} // Utilisez la propriété "picture" ou l'image par défaut si aucune image n'est disponible
+                                alt={`${displayedUser.firstName} ${displayedUser.lastName}`}
+                            />
+                        </div>
+                        <h2 className="subtitle-nameMember">
+                            {displayedUser.firstName} {displayedUser.lastName}
+                        </h2>
+                        <p>{displayedUser.email}</p>
+                        <p>
+                            {displayedUser.address}, {displayedUser.zipcode} {displayedUser.city}
+                        </p>
+                        <p>{displayedUser.phone}</p>
+                        {/* <p>Current status :</p>
+                        <p>Role: {displayedUser.role}</p> */}
+                    </div>
                 </div>
-                <div className="profil-information-user">
-                    <h2>
-                        Nom : {user.firstName} {user.lastName}
-                    </h2>
-                    <p>Email: {user.email}</p>
-                    <p>
-                        Address: {user.address}, {user.zipcode} {user.city}
-                    </p>
-                    <p>Phone: {user.phone}</p>
-                    <p>Current status :</p>
-                    <p>Role: {user.role}</p>
-                </div>
-            </div>
-            {/* <div className="profil-techno-prestation">
+                {/* <div className="profil-techno-prestation">
                 <p>Technologies: {user.technologies}</p>
                 <p>Prestations: {prestations.length}</p>
             </div> */}
-            {prestations && prestations.length > 0 && (
-                <div className="profil-techno-prestation">
-                    <p>Technologies: {user.technologies}</p>
-                    <p>Prestations:</p>
-                    <ul className="block-information-member">
-                        {prestations.map((prestation) => (
-                            <ul className="OneMember-profile-page" key={prestation._id}>
-                                <div className="services">
-                                    <li> Technologies : {prestation.title}</li>
-                                    <li>Description : {prestation.description}</li>
-                                    <li> Service rate : {prestation.price} €</li>
-                                </div>
-                                <div className="button-profile-page">
-                                    <button className="delete-button" onClick={() => deletePrestation(prestation._id)}>
-                                        Delete
-                                    </button>
-                                    <Link className="update-button" to={`/prestation/${prestation._id}/update`}>
-                                        Update
-                                    </Link>
-                                </div>
-                            </ul>
+                {prestations && prestations.length > 0 && (
+                    <div className="profil-techno-prestation">
+                        <p>Prestations:</p>
+                        <ul className="block-information-member prestations-list">
+                            {prestations.map((prestation) => (
+                                <ul className="OneMember-profile-page" key={prestation._id}>
+                                    <div className="services">
+                                        <li className="list-services-oneMemberTeam">
+                                            {" "}
+                                            Technologies : {prestation.title}
+                                        </li>
+                                        <li className="list-services-oneMemberTeam">
+                                            Description : {prestation.description}
+                                        </li>
+                                        <li className="list-services-oneMemberTeam">
+                                            {" "}
+                                            Service rate : {prestation.price} €
+                                        </li>
+                                    </div>
+                                    <div className="button-profile-page">
+                                        {(owner || user?.role === "SuperAdmin") && (
+                                            <>
+                                                <button
+                                                    className="delete-button"
+                                                    onClick={() => deletePrestation(prestation._id)}
+                                                >
+                                                    Delete
+                                                </button>
+                                                <Link
+                                                    className="update-button"
+                                                    to={`/prestation/${prestation._id}/update`}
+                                                >
+                                                    Update
+                                                </Link>
+                                            </>
+                                        )}
+                                    </div>
+                                </ul>
+                            ))}
+                            <p>Technologies: {displayedUser.technologies}</p>
+                        </ul>
+                    </div>
+                )}
+            </div>
+            <div className="block-area-button-OneMemberTeam">
+                <div className="button-container">
+                    {/* Bouton pour accéder à PrestationForm si l'utilisateur est authentifié */}
+                    {owner ||
+                        (user?.role === "SuperAdmin" && (
+                            <Link to={`/prestationform/${params.id}`} className="button-link">
+                                Aller à PrestationForm
+                            </Link>
                         ))}
-                    </ul>
                 </div>
-            )}
 
-            <div>
-                {/* Bouton pour accéder à PrestationForm si l'utilisateur est authentifié */}
-                {isAuthenticated && (
-                    <Link to={`/prestationform/${params.id}`} className="button-link">
-                        Aller à PrestationForm
-                    </Link>
-                )}
+                <div className="button-container">
+                    {/* Bouton pour accéder à la page de mise à jour du profil */}
+
+                    {owner ||
+                        (user?.role === "SuperAdmin" && (
+                            <Link to={`/user/${params.id}/update`} className="button-link">
+                                Update Profile
+                            </Link>
+                        ))}
+                </div>
             </div>
-
-            <div>
-                {/* Bouton pour accéder à la page de mise à jour du profil */}
-
-                {isAuthenticated && (
-                    <Link to={`/user/${params.id}/update`} className="button-link">
-                        Update Profile
-                    </Link>
-                )}
-            </div>
-        </div>
+        </>
     );
 }
 

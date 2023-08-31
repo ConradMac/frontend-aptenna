@@ -22,6 +22,8 @@
     transition: all 0.3s ease;
     width: 400px;
     margin: 35px;
+    background-color: #cebd8e;
+    padding: 2%;
 }
 
 .profil-techno-prestation {
@@ -39,15 +41,25 @@
     margin-top: 5%;
 }
 
+.prestations-list .OneMember-profile-page:nth-child(odd) {
+    background-color: white; /* White background for odd elements */
+}
+
+.prestations-list .OneMember-profile-page:nth-child(even) {
+    background-color: lightgray; /* Gray background for even elements */
+}
+
 .OneMember-profile-page {
+    justify-content: space-evenly;
     display: flex;
-    padding: 0;
     align-items: center;
+    border-bottom: 1px solid black;
+    padding: 11px;
 }
 
 .services {
     width: 75%;
-    line-height: 1.4;
+    line-height: 1.7;
     margin-bottom: 4%;
 }
 
@@ -59,4 +71,19 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
+}
+
+.information-details {
+    display: flex;
+    /* text-align: center; */
+    justify-content: center;
+
+    & img {
+        border-radius: 100px;
+    }
+}
+
+.subtitle-nameMember {
+    display: flex;
+    justify-content: center;
 }

@@ -15,18 +15,18 @@ const API_URL = import.meta.env.VITE_API_URL;
 function HomePage() {
     const [teamImages, setTeamImages] = useState([]);
 
-    useEffect(() => {
-        const fetchTeamImages = async () => {
-            try {
-                const response = await axios.get(`${API_URL}/team-images`);
-                setTeamImages(response.data);
-            } catch (error) {
-                console.error(error);
-            }
-        };
+    // useEffect(() => {
+    //     const fetchTeamImages = async () => {
+    //         try {
+    //             // const response = await axios.get(`${API_URL}/team-images`);
+    //             setTeamImages(response.data);
+    //         } catch (error) {
+    //             console.error(error);
+    //         }
+    //     };
 
-        fetchTeamImages();
-    }, []);
+    //     fetchTeamImages();
+    // }, []);
 
     return (
         <div className="homePage">
@@ -36,12 +36,11 @@ function HomePage() {
                 </div>
                 <div className="seo-homepage-text">
                     <p className="para-text-homePage">
-                        Notre quête d'excellence est dédiée à chacun de nos clients. Ainsi, nous embrassons l'approche
-                        la plus pragmatique, en toute transparence, en collaborant main dans la main avec vous et vos
-                        équipes à chaque étape du processus de développement. Forts de notre expérience dans des projets
-                        à forts enjeux techniques et commerciaux, nous avons su forger notre expertise. Qu'il s'agisse
-                        de jeunes pousses audacieuses ou de conglomérats de renom, notre capacité d'adaptation nous
-                        permet de surmonter toutes les épreuves avec assurance.
+                        Our quest for excellence is dedicated to each of our clients. Thus, we embrace the most
+                        pragmatic approach, with complete transparency, collaborating hand in hand with you and your
+                        teams at every stage of the development process. Drawing from our experience in high-stakes
+                        technical and business projects, we have honed our expertise. Whether it's daring startups or
+                        renowned conglomerates, our adaptability enables us to overcome all challenges with confidence
                     </p>
                 </div>
             </div>
@@ -64,7 +63,7 @@ function HomePage() {
                 <div className="container h-100">
                     <div className="row align-items-center h-100">
                         <div className="container rounded">
-                            <h1 className="text-center">TECHNOLIGIES USED</h1>
+                            <h1 className="text-center">TECHNOLOGIES USED</h1>
                             <div className="slider">
                                 <div className="logos">
                                     <i className="fab fa-js fa-4x">

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import myApi from "../api/service";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import "./../styles/PrestationForm.css";
 
 // import DeletePrestationButton from "./DeletePrestationButton";
@@ -10,7 +10,7 @@ function PrestationForm() {
     const [description, setDescription] = useState("");
     const [price = 0, setPrice] = useState(0);
 
-    const params = useParams();
+    // const params = useParams();
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -30,14 +30,14 @@ function PrestationForm() {
         }
     };
 
-    const deletePrestation = async (prestationId) => {
-        try {
-            const response = await myApi.delete(`/api/prestations/${prestationId}`);
-            console.log("Prestation deleted:", response.data);
-        } catch (error) {
-            console.error("Error deleting prestation:", error);
-        }
-    };
+    // const deletePrestation = async (prestationId) => {
+    //     try {
+    //         const response = await myApi.delete(`/api/prestations/${prestationId}`);
+    //         console.log("Prestation deleted:", response.data);
+    //     } catch (error) {
+    //         console.error("Error deleting prestation:", error);
+    //     }
+    // };
 
     return (
         <div className="form-createAPrestation">
@@ -57,7 +57,7 @@ function PrestationForm() {
                 </div>
 
                 <button type="submit">Create</button>
-                <button onClick={() => deletePrestation(prestation._id)}>Delete</button>
+                {/* <button onClick={() => deletePrestation(prestation._id)}>Delete</button> */}
                 {/* <DeletePrestationButton prestationId={params.id} /> */}
             </form>
         </div>

@@ -1,8 +1,15 @@
-import React from "react";
+// import React from "react";
 import Logo from "./../assets/logo-officiel-Aptenna.png";
+// import TeamDropdown from "./TeamDropdown";
 import "./../styles/Footer.css";
 
 function Footer() {
+    // const teamMembers = [
+    //     { name: "Member 1", profileLink: "/member1" },
+    //     { name: "Member 2", profileLink: "/member2" },
+    //     { name: "Member 3", profileLink: "/member3" },
+    //     // Ajoutez les détails des autres membres ici
+    // ];
     return (
         <footer className="footer">
             <div className="column">
@@ -34,6 +41,7 @@ function Footer() {
                     <li className="link-footer-list">
                         <a href="#">Prestation 3</a>
                     </li>
+                    {/* <TeamDropdown teamMembers={teamMembers} /> */}
                 </ul>
             </div>
             <div className="column">

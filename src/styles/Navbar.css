@@ -75,3 +75,16 @@
     list-style: none;
     justify-content: space-evenly;
 }
+
+.logout-icon {
+    border: none;
+    background-color: white;
+}
+
+.img-logout {
+    width: 25px;
+}
+
+.img-login {
+    width: 25px;
+}

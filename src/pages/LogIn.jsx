@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 // impoter le context pour pouvoir utiliser la fonction authenticateUser, capiche koko
 import { UserContext } from "../context/authContext";
-import "./../styles/Login.css";
+import "./../styles/LogIn.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
 

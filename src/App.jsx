@@ -11,6 +11,9 @@ import PrestationForm from "./Components/PrestationForm";
 import { Routes, Route } from "react-router-dom";
 import UpdatePrestationForm from "./pages/UpdatePrestationForm";
 import UpdateUserProfile from "./pages/UpdateUserProfile";
+import Contact from "./pages/Contact";
+import Prestations from "./pages/Prestations";
+// import TeamDropdown from "./Components/TeamDropdown";
 
 function App() {
     return (
@@ -28,13 +31,19 @@ function App() {
                 <Route path="/techno/:id/update" element={<UpdatedOneMemberTeamPage />} />
 
                 {/* <Route path="/prestation" element={<Team />} /> */}
-                <Route path="/prestation/:id" element={<OneMemberTeam />} />
+                {/* <Route path="/prestation/:id" element={<OneMemberTeam />} /> */}
                 <Route path="/prestation/:id/update" element={<UpdatePrestationForm />} />
-                <Route path="/prestationform/:id" element={<PrestationForm />} />
+                <Route path="/prestationform" element={<PrestationForm />} />
 
                 {/* route UpdateUserProfile.jsx to OneMemberTeam */}
                 {/* <Route path="/user/:id/update" element={<OneMemberTeam />} /> */}
                 <Route path="/user/:id/update" element={<UpdateUserProfile />} />
+
+                {/* route pour contact */}
+                <Route path="/contact" element={<Contact />} />
+
+                {/* Page prestation */}
+                <Route path="/prestation" element={<Prestations />} />
 
                 {/* Routes pour l'inscription et la connexion */}
                 <Route path="/signup" element={<SignUp />} />
