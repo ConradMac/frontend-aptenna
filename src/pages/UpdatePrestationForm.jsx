@@ -61,7 +61,7 @@ function UpdatePrestationForm() {
                 </div>
                 <div className="label-form-block-area-updated-">
                     <label>Price:</label>
-                    <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} />
+                    <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} />€
                 </div>
                 <button type="submit">Update</button>
 

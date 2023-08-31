@@ -119,24 +119,24 @@ function OneMemberTeam() {
                         </ul>
                     </div>
                 )}
-            </div>
-            <div className="block-area-button-OneMemberTeam">
-                <div className="button-container">
-                    {owner ||
-                        (user?.role === "SuperAdmin" && (
-                            <Link to={`/prestationform/${params.id}`} className="button-link">
-                                Aller à PrestationForm
-                            </Link>
-                        ))}
-                </div>
+                <div className="block-area-button-OneMemberTeam">
+                    <div className="button-container">
+                        {owner ||
+                            (user?.role === "SuperAdmin" && (
+                                <Link to={`/prestationform/${params.id}`} className="button-link">
+                                    Aller à PrestationForm
+                                </Link>
+                            ))}
+                    </div>
 
-                <div className="button-container">
-                    {owner ||
-                        (user?.role === "SuperAdmin" && (
-                            <Link to={`/user/${params.id}/update`} className="button-link">
-                                Update Profile
-                            </Link>
-                        ))}
+                    <div className="button-container">
+                        {owner ||
+                            (user?.role === "SuperAdmin" && (
+                                <Link to={`/user/${params.id}/update`} className="button-link">
+                                    Update Profile
+                                </Link>
+                            ))}
+                    </div>
                 </div>
             </div>
         </>

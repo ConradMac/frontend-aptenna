@@ -4,3 +4,9 @@
     flex-direction: column;
     align-items: center;
 }
+
+.label-form-block-area-updated- {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}

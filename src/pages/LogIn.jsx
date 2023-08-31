@@ -20,6 +20,7 @@ function LoginPage() {
     const { authenticateUser } = useContext(UserContext);
 
     function handleSubmit(event) {
+        console.log("FLUTEEEEEEEEEEEEEEEEeeee");
         event.preventDefault();
         const userToLogin = { email, password };
         myApi
