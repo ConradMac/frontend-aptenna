@@ -34,3 +34,8 @@
 .extra-photo-profil {
     margin: 2%;
 }
+
+.form-signup .form-input {
+    display: flex;
+    justify-content: center;
+}
