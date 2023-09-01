@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import myApi from "../api/service";
 import { useContext } from "react";
 import { UserContext } from "../context/authContext";
-import "./../styles/updateUserProfil.css";
+import "./../styles/updatedUserProfil.css";
 
 function UpdateUserForm() {
     const [firstName, setFirstName] = useState("");
