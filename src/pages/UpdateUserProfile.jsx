@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import myApi from "../api/service";
 import { useContext } from "react";
 import { UserContext } from "../context/authContext";
-import "./../styles/updatedUserProfil.css";
+import "./../styles/updatedUserProfile.css";
 
 function UpdateUserForm() {
     const [firstName, setFirstName] = useState("");
@@ -100,7 +100,7 @@ function UpdateUserForm() {
                 <button type="submit">Update</button>
             </form>
 
-            <Link to={`/team/${user?._id}`}>Back to User Profile</Link>
+            {/* <Link to={`/team/${user?._id}`}>Back to User Profile</Link> */}
         </div>
     );
 }
