@@ -25,27 +25,12 @@ function App() {
                 <Route path="/team" element={<Team />} />
                 <Route path="/team/:id" element={<OneMemberTeam />} />
                 <Route path="/team/:id/update" element={<UpdatedOneMemberTeamPage />} />
-
-                {/* <Route path="/techno" element={<Team />} /> */}
-                <Route path="/techno/:id" element={<OneMemberTeam />} />
-                <Route path="/techno/:id/update" element={<UpdatedOneMemberTeamPage />} />
-
-                {/* <Route path="/prestation" element={<Team />} /> */}
-                {/* <Route path="/prestation/:id" element={<OneMemberTeam />} /> */}
                 <Route path="/prestation/:id/update" element={<UpdatePrestationForm />} />
                 <Route path="/prestationform" element={<PrestationForm />} />
-
-                {/* route UpdateUserProfile.jsx to OneMemberTeam */}
-                {/* <Route path="/user/:id/update" element={<OneMemberTeam />} /> */}
                 <Route path="/user/:id/update" element={<UpdateUserProfile />} />
-
-                {/* route pour contact */}
                 <Route path="/contact" element={<Contact />} />
-
-                {/* Page prestation */}
                 <Route path="/prestation" element={<Prestations />} />
-
-                {/* Routes pour l'inscription et la connexion */}
+                <Route path="/prestationform/:id" element={<PrestationForm />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/login" element={<LogIn />} />
             </Routes>

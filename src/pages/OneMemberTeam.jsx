@@ -122,12 +122,16 @@ function OneMemberTeam() {
             {owner && (
                 <>
                     <div className="block-area-button-OneMemberTeam">
+                        {/* <div className="button-container btn btn-secondary">
+                            <Link to={`/prestationform/${params.id}`} className="button-link">
+                                Aller à PrestationForm
+                            </Link>
+                        </div> */}
                         <div className="button-container btn btn-secondary">
                             <Link to={`/prestationform/${params.id}`} className="button-link">
                                 Aller à PrestationForm
                             </Link>
                         </div>
-
                         <div className="button-container btn btn-secondary">
                             <Link to={`/user/${params.id}/update`} className="button-link">
                                 Update Profile

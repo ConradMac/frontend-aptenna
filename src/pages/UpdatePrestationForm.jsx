@@ -85,9 +85,14 @@ function UpdatePrestationForm() {
                         Update
                     </button>
 
-                    <Link to={`/team/${user?._id}`} className="back-link btn btn-secondary">
+                    {/* <Link to={`/team/${user?._id}`} className="back-link btn btn-secondary">
                         Go back to Member
-                    </Link>
+                    </Link> */}
+                    {user && (
+                        <Link to={`/team/${user._id}`} className="back-link btn btn-secondary">
+                            Go back to Member
+                        </Link>
+                    )}
                 </div>
             </form>
         </div>

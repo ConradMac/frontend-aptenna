@@ -100,7 +100,7 @@ function UpdateUserForm() {
                 <button type="submit">Update</button>
             </form>
 
-            {/* <Link to={`/team/${user?._id}`}>Back to User Profile</Link> */}
+            <Link to={`/team/${user?._id}`}>Back to User Profile</Link>
         </div>
     );
 }
