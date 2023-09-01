@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-// import axios from "axios";
+// import { useState, useEffect } from "react";
 import Logo from "./../assets/logo-officiel-Aptenna.png";
 import Python from "./../assets/technos/python.png";
 import ReactPic from "./../assets/technos/nodeJs.jpg";
@@ -17,7 +16,7 @@ import { Link } from "react-router-dom";
 // const API_URL = import.meta.env.VITE_API_URL;
 
 function HomePage() {
-    const [teamImages, setTeamImages] = useState([]);
+    // const [teamImages, setTeamImages] = useState([]);
 
     return (
         <div className="homePage">
@@ -30,7 +29,7 @@ function HomePage() {
                         Our quest for excellence is dedicated to each of our clients. Thus, we embrace the most
                         pragmatic approach, with complete transparency, collaborating hand in hand with you and your
                         teams at every stage of the development process. Drawing from our experience in high-stakes
-                        technical and business projects, we have honed our expertise. Whether it's daring startups or
+                        technical and business projects, we have honed our expertise. Whether it is daring startups or
                         renowned conglomerates, our adaptability enables us to overcome all challenges with confidence
                     </p>
                 </div>
@@ -52,10 +51,10 @@ function HomePage() {
                 <div className="paragraphe-With-us-think">
                     <h3>
                         With us, envision and shape your project! Our dedicated team is here to support you at every
-                        step of your journey. Whether you have an innovative idea in mind or you're looking to
+                        step of your journey. Whether you have an innovative idea in mind or you are looking to
                         streamline your existing processes, our pragmatic and transparent approach ensures close
                         collaboration. Drawing from our experience in significant technical and business projects, we
-                        showcase our expertise to address your challenges with confidence. Whether it's daring startups
+                        showcase our expertise to address your challenges with confidence. Whether it is daring startups
                         or well-established enterprises, our adaptability empowers us to conquer all challenges with
                         assurance. At our core, your project becomes our mission
                     </h3>
@@ -72,20 +71,20 @@ function HomePage() {
                             <div className="slider">
                                 <div className="logos">
                                     <i className="fab fa-js fa-4x">
-                                        <img className="logos-techno-slide" src={Python} alt="" />
+                                        <img className="logos-techno-slide" src={Python} alt="langage Pyhton" />
                                     </i>
                                     <i className="fab fa-js fa-4x">
-                                        <img className="logos-techno-slide" src={ReactPic} alt="" />
+                                        <img className="logos-techno-slide" src={ReactPic} alt="Langage React" />
                                     </i>
                                     <i className="fab fa-js fa-4x">
-                                        <img className="logos-techno-slide" src={Node} alt="" />
+                                        <img className="logos-techno-slide" src={Node} alt="Langage Node js" />
                                     </i>
 
                                     <i className="fab fa-js fa-4x">
-                                        <img className="logos-techno-slide" src={Javascript} alt="" />
+                                        <img className="logos-techno-slide" src={Javascript} alt="Langage Javascript" />
                                     </i>
                                     <i className="fab fa-js fa-4x">
-                                        <img className="logos-techno-slide" src={Go} alt="" />
+                                        <img className="logos-techno-slide" src={Go} alt="Langage Go" />
                                     </i>
                                 </div>
                             </div>
