@@ -62,7 +62,7 @@ function UpdateUserForm() {
     return (
         <div className="form-updateUser">
             <h2>Update User Information</h2>
-            <form onSubmit={handleUpdate}>
+            <form className="form-updated-user" onSubmit={handleUpdate}>
                 <div>
                     <label>First Name:</label>
                     <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
